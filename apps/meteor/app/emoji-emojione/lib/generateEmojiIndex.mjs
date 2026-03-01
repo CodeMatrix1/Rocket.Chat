@@ -8,8 +8,10 @@ import nsg from 'node-sprite-generator';
 import _ from 'underscore';
 import gm from 'gm'; // lgtm[js/unused-local-variable]
 
-const assetFolder = '../../../node_modules/emojione-assets';
-const emojiJsonFile = `${assetFolder}/emoji.json`;
+const assetFolder = '../../../node_modules/emoji-assets';
+const emoji_package = '../../../node_modules/emoji-toolkit'; //emoji-toolkit is used instead of emojione.
+const emojiJsonFile = `${emoji_package}/emoji.json`;
+
 
 if (!fs.existsSync(emojiJsonFile)) {
 	console.error(`${emojiJsonFile} doesn't exist.`);
@@ -59,7 +61,7 @@ function generateEmojiPicker(data) {
 		{ key: 'travel', i18n: 'Travel_and_Places' },
 		{ key: 'objects', i18n: 'Objects' },
 		{ key: 'symbols', i18n: 'Symbols' },
-		{ key: 'flags', i18n: 'Flags' },
+		{ key: 'flags', i18n: 'Flags' }
 	];
 
 	// emojiCategories
@@ -101,11 +103,11 @@ function generateEmojiPicker(data) {
 	}
 	output += `};\n`;
 
-	fs.writeFileSync('emojiPicker.js', output, {
+	fs.writeFileSync('emojiPicker.ts', output, {
 		encoding: 'utf8',
 		flag: 'w',
 	});
-	console.log('Generated emojiPicker.js!');
+	console.log('Generated emojiPicker.ts!');
 
 	console.log('Generating sprite sheets....');
 
