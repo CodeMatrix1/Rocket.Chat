@@ -413,7 +413,11 @@ function EditDepartment({ data, id, title, allowedToForwardData }: EditDepartmen
 							</FieldRow>
 						</Field>
 						<Field>
-							<DepartmentBusinessHours bhId={department?.businessHourId} />
+							<Controller
+								control={control}
+								name='businessHourId'
+								render={({ field: { value, onChange } }) => <DepartmentBusinessHours value={value} onChange={onChange} />}
+							/>
 						</Field>
 						<Divider mb={16} />
 						<Field>

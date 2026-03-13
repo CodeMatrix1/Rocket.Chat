@@ -24,4 +24,5 @@ export type EditDepartmentFormData = {
 	chatClosingTags: string[];
 	allowReceiveForwardOffline: boolean;
 	unit?: string;
+	businessHourId: string;
 };
